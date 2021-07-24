@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>welcome to the log in page</title>
+  </head>
+  <style>
+  .login{
+    width: 500px;
+    height: 400px;
+    background-color: #7DEDFF;
+    margin-left:800px;
+  }
+  </style>
+  <body>
+    <div  ng-app="myapp" ng-controller="mycontroller">
+
+  <div class="login">
+  <h5> You have allready account!</h5>
+    <form class="myform" novalidate>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" ng-modle="email1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" ng-model="psd1" class="form-control" id="exampleInputPassword1" required>
+  </div>
+
+<a href="profile.html"  ng-click="val()" button type="submit" class="btn btn-primary">Submit</a>
+        <span ng-show="check" style="color: red">Login successful  </span>
+          <span ng-show="fail" style="color: red">Pls register or Enter correct details</span>
+          <br>
+</form>
+</div>
+</div>
+<script>
+var app = angular.module("wedoangular",[]);
+app.controller('mycontroller',function($scope){
+  $scope.val =function(){
+
+                $scope.check=false
+                $scope.fail=false
+
+                console.log(email_index=$scope.userlist.findIndex(x=>x.email===$scope.email1))
+                console.log(psd_index=$scope.userlist.findIndex(x=>x.psd===$scope.psd1))
+
+
+                if( (psd_index===email_index ) && psd_index>=0 && email_index >=0 ){
+
+                 $scope.check=true
+
+                }else{
+
+                 $scope.check=false;
+                 $scope.fail=true
+                }
+
+                }
+
+
+});
+
+
+
+
+</script>
+
+  </body>
+</html>
